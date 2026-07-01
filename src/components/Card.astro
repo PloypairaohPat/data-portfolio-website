@@ -1,0 +1,20 @@
+---
+const { project: p } = Astro.props;
+---
+<article class="card" data-tags={p.card.tags.join(' ')}>
+  <div class="card-top">
+    <span class={'badge ' + p.badgeClass}>{p.badgeLabel}</span>
+    {p.live && <span class="live"><span class="pulse"></span>Live</span>}
+  </div>
+  <h3>{p.card.title}</h3>
+  <p>{p.card.summary}</p>
+  <div class="readout"><span class="tick">▸</span><span set:html={p.card.readout}></span></div>
+  <div class="tools">{p.card.tools.map((t) => <span class="tool">{t}</span>)}</div>
+  <div class="card-foot">
+    <a href={`/projects/${p.slug}`} class="case-link">View case study →</a>
+    <div class="ext-links">
+      {p.liveUrl && <a href={p.liveUrl} target="_blank" rel="noopener">Live ↗</a>}
+      <a href={p.code} target="_blank" rel="noopener">Code ↗</a>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,65 @@
+---
+import Base from '../../layouts/Base.astro';
+import { projects } from '../../data/projects';
+export function getStaticPaths() {
+  return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+const { project: p } = Astro.props;
+const secList = [['01', 'Problem', p.sections.problem], ['02', 'Data', p.sections.data], ['03', 'Method', p.sections.method]];
+---
+<Base title={`${p.caseTitle} — Case Study · Ploypairaoh Pat`} description={p.desc} showFooter={false}>
+  <header class="ch">
+    <div class="read">
+      <span class={'badge ' + p.badgeClass}>{p.badgeLabel}</span>
+      {p.live && <span class="live"><span class="pulse"></span>{p.live}</span>}
+      <h1>{p.caseTitle}</h1>
+      <p class="dek" set:html={p.dek}></p>
+    </div>
+    <div class="wrap"><div class="strip">
+      {p.stats.map((st) => <div class="stat"><div class="v" set:html={st.v}></div><div class="l" set:html={st.l}></div></div>)}
+    </div></div>
+  </header>
+  <div class="tape" aria-hidden="true"></div>
+  <main class="memo">
+    <div class="read">
+      {secList.map((sec) => (
+        <div class="sec"><div class="lbl"><span class="n">{sec[0]}</span><span class="t">{sec[1]}</span><span class="rule"></span></div><p set:html={sec[2]}></p></div>
+      ))}
+      <div class="sec"><div class="lbl"><span class="n">04</span><span class="t">Finding</span><span class="rule"></span></div>
+        <div class="finding">{p.sections.finding.map((para) => <p set:html={para}></p>)}</div>
+      </div>
+      <div class="sec"><div class="lbl"><span class="n">05</span><span class="t">Recommendation</span><span class="rule"></span></div><p set:html={p.sections.recommendation}></p></div>
+    </div>
+    <div class="tape" aria-hidden="true"></div>
+    {p.chart.type === 'img' && (
+      <section class="embed-sec wrap">
+        <div class="embed-head"><h2>{p.chart.title}</h2><span class="eyebrow">{p.chart.eyebrow}</span></div>
+        <div class={'chart-imgs ' + (p.chart.images.length > 1 ? 'two' : '')}>
+          {p.chart.images.map((im) => <figure><img src={im.src} alt={im.alt} loading="lazy" /><figcaption set:html={im.caption}></figcaption></figure>)}
+        </div>
+      </section>
+    )}
+    {p.chart.type === 'iframe' && (
+      <section class="embed-sec wrap">
+        <div class="embed-head"><h2>{p.chart.title}</h2><span class="eyebrow">{p.chart.eyebrow}</span></div>
+        <div class="embed-frame"><iframe src={p.chart.src} title="Live dashboard" loading="lazy" allow="fullscreen"></iframe></div>
+        <div class="embed-cap"><span set:html={p.chart.caption}></span><a href={p.chart.openUrl} target="_blank" rel="noopener">Open full dashboard ↗</a></div>
+      </section>
+    )}
+    {p.chart.type === 'ph' && (
+      <section class="embed-sec wrap">
+        <div class="embed-head"><h2>{p.chart.title}</h2><span class="eyebrow">{p.chart.eyebrow}</span></div>
+        <div class="chart-ph"><div class="ph-tape"></div><div class="ph-title">{p.chart.phTitle}</div><p class="ph-note" set:html={p.chart.note}></p>
+          {p.chart.btnUrl && <a href={p.chart.btnUrl} target="_blank" rel="noopener" class="ph-btn">{p.chart.btnLabel} ↗</a>}
+        </div>
+      </section>
+    )}
+  </main>
+  <footer class="cfoot"><div class="wrap cfoot-inner">
+    <a href="/#work" class="back">← All work</a>
+    <div class="links">
+      {p.liveUrl && <a href={p.liveUrl} target="_blank" rel="noopener">Live ↗</a>}
+      <a href={p.code} target="_blank" rel="noopener">Code on GitHub ↗</a>
+    </div>
+  </div></footer>
+</Base>

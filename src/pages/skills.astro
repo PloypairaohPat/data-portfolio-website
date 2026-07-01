@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+const LEVELS = { Advanced: [92, 'lv-adv'], Proficient: [68, 'lv-pro'], Familiar: [42, 'lv-fam'] };
+const DEFS = { Advanced: 'Can defend at depth', Proficient: 'Comfortable with common patterns', Familiar: 'Used for one task, still learning' };
+const cats = [
+  ['Languages & Querying', [['Python','Advanced','All six data projects'],['SQL','Advanced','Analytics engineering · Compliance'],['dbt','Proficient','SQL warehouse · Compliance masking'],['TypeScript','Proficient','Ledger full-stack app']]],
+  ['Machine Learning', [['scikit-learn','Proficient','Fraud · Fake-news NLP'],['XGBoost','Proficient','Fraud · Fake-news NLP'],['imbalanced-learn / SMOTE','Proficient','Fraud detection'],['SHAP','Proficient','Fraud explainability'],['spaCy / NLP','Proficient','Fake-news classifier']]],
+  ['MLOps & Engineering', [['Evidently AI','Proficient','Model monitoring'],['MLflow','Proficient','Model monitoring'],['Apache Airflow','Familiar','Model monitoring (local)'],['Plaid integration','Proficient','Ledger finance app']]],
+  ['Data & Analytics', [['pandas / NumPy','Advanced','Every project'],['DuckDB','Proficient','SQL warehouse · Compliance'],['Plotly / Matplotlib','Proficient','Risk · Fraud'],['Great Expectations','Proficient','Compliance audit']]],
+  ['Domain & Full-Stack', [['Quantitative Risk — VaR, Monte Carlo','Proficient','Portfolio risk'],['GDPR / CCPA governance','Proficient','Compliance audit'],['React · Node · Express · Prisma','Proficient','Ledger finance app'],['Star-schema / dimensional modelling','Proficient','SQL warehouse']]],
+];
+---
+<Base title="Skills Matrix · Ploypairaoh Pat" description="Honest proficiency across languages, ML, MLOps, analytics, and full-stack — mapped to the projects each skill came from." active="skills">
+  <header class="ph"><div class="read"><span class="eyebrow">Skills</span><h1>Skills matrix</h1><p class="dek">Rated honestly against the work, not aspirationally. Every skill is tagged with the project it was used in — if it's marked Advanced, I can discuss it at depth in an interview.</p></div></header>
+  <div class="tape"></div>
+  <main class="read">
+    <div class="legend">
+      {Object.entries(LEVELS).map(([lv, wc]) => (
+        <div class="lg"><span class="bar"><i style={`width:${wc[0]}%`}></i></span><span class={'t ' + wc[1]}>{lv}</span><span class="d">— {DEFS[lv]}</span></div>
+      ))}
+    </div>
+    {cats.map((cat) => (
+      <div class="cat"><h2>{cat[0]}</h2>
+        {cat[1].map((row) => (
+          <div class="smrow">
+            <div class="smname">{row[0]}<span>{row[2]}</span></div>
+            <div class="smbar"><i style={`width:${LEVELS[row[1]][0]}%`}></i></div>
+            <div class={'smlevel ' + LEVELS[row[1]][1]}>{row[1]}</div>
+          </div>
+        ))}
+      </div>
+    ))}
+  </main>
+</Base>

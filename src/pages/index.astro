@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import Card from '../components/Card.astro';
+import { projects } from '../data/projects';
+const domains = [['01','Quantitative Risk'],['02','Analytics Engineering'],['03','NLP Classification'],['04','Fraud Detection'],['05','Data Governance'],['06','Model Monitoring'],['07','Full-Stack']];
+const toolkit = ['Python','SQL / dbt','scikit-learn','XGBoost','SHAP','Evidently','MLflow','Airflow','Plotly','DuckDB','TypeScript / React'];
+---
+<Base title="Ploypairaoh Pat — Data Analyst & ML Engineer" description="Data analyst and ML engineer portfolio: quantitative risk, NLP classification, fraud detection, MLOps monitoring, data governance, and full-stack engineering." active="home">
+  <header class="hero" id="top">
+    <div class="wrap hero-center">
+      <span class="eyebrow">Data Analyst · ML Engineer</span>
+      <h1>Ploypairaoh&nbsp;Pat</h1>
+      <p class="lede">I build production-grade analysis that ends in a <strong>decision</strong> — quantitative risk, NLP, fraud detection, and the <strong>MLOps</strong> that keeps models honest in production.</p>
+      <div class="hero-cta">
+        <a href="#work" class="btn btn-primary">View the work →</a>
+        <a href="https://github.com/PloypairaohPat" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+      </div>
+      <div class="hero-domains" aria-label="Project domains">
+        {domains.map(([n, label]) => <span class="hd"><i>{n}</i> {label}</span>)}
+      </div>
+    </div>
+  </header>
+  <div class="tape" aria-hidden="true"></div>
+  <section class="skills" id="skills">
+    <div class="wrap skills-row">
+      <span class="eyebrow">Toolkit</span>
+      {toolkit.map((s) => <span class="skill">{s}</span>)}
+    </div>
+  </section>
+  <div class="tape" aria-hidden="true"></div>
+  <main class="work" id="work">
+    <div class="wrap">
+      <div class="work-head"><h2>Selected work</h2><span class="eyebrow">Seven projects · click to filter</span></div>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="filter is-active" data-filter="all">All</button>
+        <button class="filter" data-filter="python">Python</button>
+        <button class="filter" data-filter="sql">SQL</button>
+        <button class="filter" data-filter="ml">Machine Learning</button>
+        <button class="filter" data-filter="finance">Finance</button>
+        <button class="filter" data-filter="fullstack">Full-Stack</button>
+      </div>
+      <div class="grid" id="grid">
+        {projects.map((p) => <Card project={p} />)}
+      </div>
+    </div>
+  </main>
+  <script is:inline>
+    const filters = document.querySelectorAll('.filter');
+    const cards = document.querySelectorAll('#grid .card');
+    filters.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filters.forEach((b) => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        const f = btn.dataset.filter;
+        cards.forEach((card) => {
+          const show = f === 'all' || card.dataset.tags.split(' ').includes(f);
+          card.style.display = show ? 'flex' : 'none';
+        });
+      });
+    });
+  </script>
+</Base>
