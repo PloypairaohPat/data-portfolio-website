@@ -78,15 +78,15 @@ export const projects = [
     "desc": "A 5-layer dbt + DuckDB pipeline turning raw operational tables into a tested, business-facing metrics layer with a published lineage graph.",
     "badgeLabel": "Analytics Engineering",
     "badgeClass": "ae",
-    "live": null,
+    "live": "Live",
     "dek": "A five-layer dbt + DuckDB pipeline that turns raw operational tables into a trustworthy, business-facing metrics layer &mdash; with automated tests on every model and a published lineage graph.",
     "stats": [
       {
-        "v": "18",
+        "v": "19",
         "l": "dbt models, 5 layers"
       },
       {
-        "v": "127",
+        "v": "132",
         "l": "automated tests"
       },
       {
@@ -103,7 +103,7 @@ export const projects = [
       "data": "The Northwind dataset &mdash; a classic operational schema of orders, customers, products, and employees: 8 source tables, about 830 orders across 91 customers &mdash; loaded as raw seeds and modelled upward into analytics-ready marts.",
       "method": "A five-layer dbt project on DuckDB: raw seeds &rarr; staging (typed, renamed, cleaned) &rarr; intermediate (joins and business logic) &rarr; a dimensional layer of facts and dimensions in a <strong>star schema</strong> &rarr; reporting marts the business actually reads. Every model carries tests &mdash; uniqueness, not-null, referential integrity, accepted values &mdash; and the whole graph is documented with a published lineage DAG.",
       "finding": [
-        "<strong>18 models, 127 automated tests, a 100% pass rate</strong> &mdash; and from that tested layer the business signal is immediate: the top 3 customers alone carry over <strong>$319K</strong> in lifetime value, a single product (Côte de Blaye) drives $141K, and Argentina shows the weakest on-time delivery at 81%.",
+        "<strong>19 models, 132 automated tests, a 100% pass rate</strong> &mdash; and from that tested layer the business signal is immediate: the top 3 customers alone carry over <strong>$319K</strong> in lifetime value, a single product (Côte de Blaye) drives $141K, and Argentina shows the weakest on-time delivery at 81%.",
         "Because every figure traces back through tested models, none of it needs re-checking by hand."
       ],
       "recommendation": "Promote this tested layer to the single source for customer and revenue reporting, and wire the test suite into CI so a failing test blocks a bad merge before it reaches a dashboard. The regional on-time-delivery gap is the first operational thread worth pulling &mdash; it's a margin problem hiding inside a logistics metric."
@@ -121,11 +121,11 @@ export const projects = [
       ]
     },
     "code": "https://github.com/PloypairaohPat/sql-analytics-engineering-project",
-    "liveUrl": null,
+    "liveUrl": "https://northwind-analytics-pat.netlify.app",
     "card": {
       "title": "SQL Analytics Engineering",
       "summary": "A 5-layer dbt + DuckDB warehouse turning raw seeds into a business-facing metrics layer, with automated testing baked into every model and a published lineage DAG.",
-      "readout": "<b>18 models</b> · <b>127 tests</b> · 100% pass rate",
+      "readout": "<b>19 models</b> · <b>132 tests</b> · 100% pass rate",
       "tools": [
         "dbt Core",
         "DuckDB",
@@ -140,11 +140,11 @@ export const projects = [
   {
     "slug": "nlp",
     "caseTitle": "Telling real news from fabricated, at 97% F1",
-    "desc": "A TF-IDF + XGBoost pipeline that separates fabricated articles from real reporting, wrapped in a paste-an-article app for live inference.",
+    "desc": "A TF-IDF + XGBoost pipeline that separates fabricated articles from real reporting, wrapped in a paste-an-article app for single-article predictions.",
     "badgeLabel": "NLP / ML",
     "badgeClass": "nlp",
     "live": null,
-    "dek": "A linguistic-feature + TF-IDF + XGBoost pipeline that separates fabricated articles from real reporting, wrapped in a paste-an-article app for live inference.",
+    "dek": "A linguistic-feature + TF-IDF + XGBoost pipeline that separates fabricated articles from real reporting, wrapped in a paste-an-article app for single-article predictions.",
     "stats": [
       {
         "v": "97%",
@@ -171,7 +171,7 @@ export const projects = [
         "The XGBoost model reaches a <strong>97% macro F1</strong> on roughly 14,400 held-out articles &mdash; strong precision and recall on <em>both</em> classes, not just the easy majority.",
         "Macro-averaging is the point: it proves the model catches fabricated articles, not that it's riding the base rate of real ones."
       ],
-      "recommendation": "Deploy this as a triage layer that ranks incoming articles by fabrication probability and routes the high-risk tail to human reviewers &mdash; it doesn't replace editorial judgement, it focuses it. The logged next step is a DistilBERT baseline, to test whether contextual embeddings beat the TF-IDF features on the hardest, most adversarial examples."
+      "recommendation": "Deploy this as a triage layer that ranks incoming articles by fabrication probability and routes the high-risk tail to human reviewers &mdash; it doesn't replace editorial judgement, it focuses it."
     },
     "chart": {
       "type": "ph",
@@ -186,7 +186,7 @@ export const projects = [
     "liveUrl": null,
     "card": {
       "title": "Fake News Detection Classifier",
-      "summary": "A spaCy → TF-IDF → XGBoost pipeline that separates fabricated from real news articles, packaged as a paste-an-article web app for live inference.",
+      "summary": "A spaCy → TF-IDF → XGBoost pipeline that separates fabricated from real news articles, packaged as a paste-an-article web app for single-article predictions.",
       "readout": "<b>97% macro F1</b> · 14.4k held-out articles",
       "tools": [
         "scikit-learn",
