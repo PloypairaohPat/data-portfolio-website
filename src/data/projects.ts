@@ -39,8 +39,8 @@ export const projects = [
     },
     "chart": {
       "type": "img",
-      "title": "The analysis, live",
-      "eyebrow": "Interactive in the repo &middot; static here",
+      "title": "Key charts",
+      "eyebrow": "Static exports &middot; full analysis in the repository",
       "images": [
         {
           "src": "https://raw.githubusercontent.com/PloypairaohPat/financial-portfolio-risk-analysis/main/reports/figures/efficient_frontier.png",
@@ -175,11 +175,11 @@ export const projects = [
     },
     "chart": {
       "type": "ph",
-      "title": "The live classifier",
-      "eyebrow": "Streamlit &middot; ready to deploy",
+      "title": "Classifier interface",
+      "eyebrow": "Streamlit prototype &middot; source available",
       "phTitle": "Paste-an-article classifier",
-      "note": "The Streamlit app is built and runs locally. Deploy it to Streamlit Cloud and it embeds here as a live demo &mdash; paste any article, get a real-or-fake call.",
-      "btnLabel": "View the app code",
+      "note": "The repository includes a Streamlit interface for single-article predictions, with setup instructions and the full modelling workflow.",
+      "btnLabel": "View the source",
       "btnUrl": "https://github.com/PloypairaohPat/fake-news-detection-nlp-classifier"
     },
     "code": "https://github.com/PloypairaohPat/fake-news-detection-nlp-classifier",
@@ -427,10 +427,10 @@ export const projects = [
     },
     "chart": {
       "type": "ph",
-      "title": "The live app",
+      "title": "Application overview",
       "eyebrow": "Plaid Production &middot; auth-gated",
       "phTitle": "Screenshots needed here",
-      "note": "The app is live, but it's gated behind sign-in because it handles real bank data &mdash; so most viewers can't see it. Add 2&ndash;3 screenshots of the dashboard, the alerts feed, and the health score; they're the single highest-impact addition to this case study.",
+      "note": "The live app uses authentication because it connects to real financial data. The case study and repository document the dashboard, alert system, and health-score pipeline.",
       "btnLabel": "Open the live app",
       "btnUrl": "https://finance-dashboard-tau-two.vercel.app"
     },

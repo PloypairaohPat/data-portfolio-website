@@ -2,21 +2,29 @@
 import Base from '../layouts/Base.astro';
 import Card from '../components/Card.astro';
 import { projects } from '../data/projects';
-const domains = [['01','Quantitative Risk'],['02','Analytics Engineering'],['03','NLP Classification'],['04','Fraud Detection'],['05','Data Governance'],['06','Model Monitoring'],['07','Full-Stack']];
+const domains = [
+  ['01', 'Quantitative Risk', 'risk'],
+  ['02', 'Analytics Engineering', 'sql'],
+  ['03', 'NLP Classification', 'nlp'],
+  ['04', 'Fraud Detection', 'fraud'],
+  ['05', 'Data Governance', 'compliance'],
+  ['06', 'Model Monitoring', 'monitoring'],
+  ['07', 'Full-Stack', 'ledger'],
+];
 const toolkit = ['Python','SQL / dbt','scikit-learn','XGBoost','SHAP','Evidently','MLflow','Airflow','Plotly','DuckDB','TypeScript / React'];
 ---
-<Base title="Ploypairaoh Pat — Data Analyst & ML Engineer" description="Data analyst and ML engineer portfolio: quantitative risk, NLP classification, fraud detection, MLOps monitoring, data governance, and full-stack engineering." active="home">
+<Base title="Ploypairaoh Pat — Data Analyst" description="Data analyst portfolio featuring decision-focused work in quantitative risk, analytics engineering, NLP, fraud detection, data governance, and model monitoring." active="home">
   <header class="hero" id="top">
     <div class="wrap hero-center">
-      <span class="eyebrow">Data Analyst · ML Engineer</span>
+      <span class="eyebrow">Data Analyst · George Mason University</span>
       <h1>Ploypairaoh&nbsp;Pat</h1>
-      <p class="lede">I build production-grade analysis that ends in a <strong>decision</strong> — quantitative risk, NLP, fraud detection, and the <strong>MLOps</strong> that keeps models honest in production.</p>
+      <p class="lede">I turn messy data into clear decisions across risk, fraud, operations, and governance. I'm pursuing a B.S. in Computational and Data Sciences at George Mason University and graduating in <strong>2027</strong>.</p>
       <div class="hero-cta">
         <a href="#work" class="btn btn-primary">View the work →</a>
         <a href="https://github.com/PloypairaohPat" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
       </div>
       <div class="hero-domains" aria-label="Project domains">
-        {domains.map(([n, label]) => <span class="hd"><i>{n}</i> {label}</span>)}
+        {domains.map(([n, label, slug]) => <a class="hd" href={`/projects/${slug}`}><i>{n}</i> {label}</a>)}
       </div>
     </div>
   </header>
@@ -32,30 +40,39 @@ const toolkit = ['Python','SQL / dbt','scikit-learn','XGBoost','SHAP','Evidently
     <div class="wrap">
       <div class="work-head"><h2>Selected work</h2><span class="eyebrow">Seven projects · click to filter</span></div>
       <div class="filters" role="group" aria-label="Filter projects">
-        <button class="filter is-active" data-filter="all">All</button>
-        <button class="filter" data-filter="python">Python</button>
-        <button class="filter" data-filter="sql">SQL</button>
-        <button class="filter" data-filter="ml">Machine Learning</button>
-        <button class="filter" data-filter="finance">Finance</button>
-        <button class="filter" data-filter="fullstack">Full-Stack</button>
+        <button class="filter is-active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" data-filter="python" aria-pressed="false">Python</button>
+        <button class="filter" data-filter="sql" aria-pressed="false">SQL</button>
+        <button class="filter" data-filter="ml" aria-pressed="false">Machine Learning</button>
+        <button class="filter" data-filter="finance" aria-pressed="false">Finance</button>
+        <button class="filter" data-filter="fullstack" aria-pressed="false">Full-Stack</button>
       </div>
       <div class="grid" id="grid">
         {projects.map((p) => <Card project={p} />)}
       </div>
+      <p class="no-results" id="no-results" hidden>No projects match this filter.</p>
     </div>
   </main>
   <script is:inline>
     const filters = document.querySelectorAll('.filter');
     const cards = document.querySelectorAll('#grid .card');
+    const noResults = document.querySelector('#no-results');
     filters.forEach((btn) => {
       btn.addEventListener('click', () => {
-        filters.forEach((b) => b.classList.remove('is-active'));
+        filters.forEach((b) => {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('is-active');
+        btn.setAttribute('aria-pressed', 'true');
         const f = btn.dataset.filter;
+        let visibleCount = 0;
         cards.forEach((card) => {
           const show = f === 'all' || card.dataset.tags.split(' ').includes(f);
           card.style.display = show ? 'flex' : 'none';
+          if (show) visibleCount += 1;
         });
+        noResults.hidden = visibleCount !== 0;
       });
     });
   </script>
