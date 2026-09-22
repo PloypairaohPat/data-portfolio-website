@@ -429,7 +429,7 @@ export const projects = [
       "type": "ph",
       "title": "Application overview",
       "eyebrow": "Plaid Production &middot; auth-gated",
-      "phTitle": "Screenshots needed here",
+      "phTitle": "Authenticated finance dashboard",
       "note": "The live app uses authentication because it connects to real financial data. The case study and repository document the dashboard, alert system, and health-score pipeline.",
       "btnLabel": "Open the live app",
       "btnUrl": "https://finance-dashboard-tau-two.vercel.app"
