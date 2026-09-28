@@ -1,22 +1,23 @@
 ---
 import Base from '../layouts/Base.astro';
-const LEVELS = { Advanced: [92, 'lv-adv'], Proficient: [68, 'lv-pro'], Familiar: [42, 'lv-fam'] };
-const DEFS = { Advanced: 'Can defend at depth', Proficient: 'Comfortable with common patterns', Familiar: 'Used for one task, still learning' };
+const LEVELS = { Proficient: [92, 'lv-adv'], 'Working knowledge': [68, 'lv-pro'], Familiar: [42, 'lv-fam'] };
 const cats = [
-  ['Languages & Querying', [['Python','Advanced','Risk · NLP · Fraud · Compliance · Monitoring'],['SQL','Advanced','Analytics engineering · Compliance'],['dbt','Proficient','SQL warehouse · Compliance masking'],['TypeScript','Proficient','Ledger full-stack app']]],
-  ['Machine Learning', [['scikit-learn','Proficient','Fraud · Fake-news NLP'],['XGBoost','Proficient','Fraud · Fake-news NLP'],['imbalanced-learn / SMOTE','Proficient','Fraud detection'],['SHAP','Proficient','Fraud explainability'],['spaCy / NLP','Proficient','Fake-news classifier']]],
-  ['MLOps & Engineering', [['Evidently AI','Proficient','Model monitoring'],['MLflow','Proficient','Model monitoring'],['Apache Airflow','Familiar','Model monitoring DAG'],['Plaid integration','Proficient','Ledger finance app']]],
-  ['Data & Analytics', [['pandas / NumPy','Advanced','Risk · NLP · Fraud · Compliance · Monitoring'],['DuckDB','Proficient','SQL warehouse · Compliance'],['Plotly / Matplotlib','Proficient','Risk · Fraud'],['Great Expectations','Proficient','Compliance audit']]],
-  ['Domain & Full-Stack', [['Quantitative Risk — VaR, Monte Carlo','Proficient','Portfolio risk'],['GDPR / CCPA governance','Proficient','Compliance audit'],['React · Node · Express · Prisma','Proficient','Ledger finance app'],['Star-schema / dimensional modelling','Proficient','SQL warehouse']]],
+  ['Languages & Querying', [['Python','Proficient','Risk · NLP · Fraud · Compliance · Monitoring'],['SQL','Proficient','Analytics engineering · Compliance'],['R','Familiar','Data analysis'],['dbt','Working knowledge','SQL warehouse · Compliance masking'],['TypeScript','Working knowledge','Ledger full-stack app']]],
+  ['Machine Learning', [['scikit-learn','Working knowledge','Fraud · Fake-news NLP'],['XGBoost','Working knowledge','Fraud · Fake-news NLP'],['imbalanced-learn / SMOTE','Working knowledge','Fraud detection'],['SHAP','Working knowledge','Fraud explainability'],['spaCy / NLP','Working knowledge','Fake-news classifier']]],
+  ['MLOps & Engineering', [['Evidently AI','Working knowledge','Model monitoring'],['MLflow','Working knowledge','Model monitoring'],['Apache Airflow','Familiar','Model monitoring DAG']]],
+  ['Data & Analytics', [['pandas / NumPy','Proficient','Risk · NLP · Fraud · Compliance · Monitoring'],['DuckDB','Working knowledge','SQL warehouse · Compliance'],['Great Expectations','Working knowledge','Compliance audit']]],
+  ['Domain & Full-Stack', [['Quantitative Risk — VaR, Monte Carlo','Working knowledge','Portfolio risk'],['GDPR / CCPA governance','Familiar','Compliance audit'],['Express','Working knowledge','Ledger finance app'],['Star-schema / dimensional modelling','Working knowledge','SQL warehouse']]],
+  ['Visualization & Apps', [['matplotlib · seaborn','Working knowledge','Risk · Fraud · Inventory analysis'],['Plotly','Working knowledge','Risk · Fraud'],['Streamlit','Familiar','Fake-news classifier'],['React · Node.js','Working knowledge','Ledger finance app'],['PostgreSQL · Prisma','Working knowledge','Ledger finance app'],['Plaid API','Familiar','Ledger finance app']]],
+  ['Workplace Tools', [['Microsoft Office (Excel, Word, PowerPoint)','Working knowledge','Inventory analysis · Reports · Presentations'],['Slack','Familiar','Team communication'],['SharePoint','Familiar','AV inventory committee'],['Power Apps','Familiar','AV inventory committee']]],
 ];
 ---
-<Base title="Skills Matrix · Ploypairaoh Pat" description="Honest proficiency across languages, ML, MLOps, analytics, and full-stack — mapped to the projects each skill came from." active="skills">
-  <header class="ph"><div class="read"><span class="eyebrow">Skills</span><h1>Skills matrix</h1><p class="dek">Rated honestly against the work, not aspirationally. Every skill is tagged with the project it was used in — if it's marked Advanced, I can discuss it at depth in an interview.</p></div></header>
+<Base title="Skills Matrix · Ploypairaoh Pat" description="Skills in languages, analytics, machine learning, visualization, apps, and workplace tools, grounded in projects and experience." active="skills">
+  <header class="ph"><div class="read"><span class="eyebrow">Skills</span><h1>Skills matrix</h1><p class="dek">Skills grounded in project work, coursework, and workplace experience.</p></div></header>
   <div class="tape"></div>
   <main class="read">
     <div class="legend">
       {Object.entries(LEVELS).map(([lv, wc]) => (
-        <div class="lg"><span class="bar"><i style={`width:${wc[0]}%`}></i></span><span class={'t ' + wc[1]}>{lv}</span><span class="d">— {DEFS[lv]}</span></div>
+        <div class="lg"><span class="bar"><i style={`width:${wc[0]}%`}></i></span><span class={'t ' + wc[1]}>{lv}</span></div>
       ))}
     </div>
     {cats.map((cat) => (

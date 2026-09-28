@@ -1,22 +1,22 @@
 ---
 import Base from '../layouts/Base.astro';
-import { email, hasResume, linkedin } from '../data/site';
+import { email, hasResume, linkedin, resumePath } from '../data/site';
 ---
 <Base title="About · Ploypairaoh Pat" description="Computational and Data Science student at George Mason University, focused on data analysis and business decisions. Expected graduation: 2027." active="about">
   <header class="ph"><div class="read"><span class="eyebrow">About</span><h1>Analysis is the last mile before a decision.</h1></div></header>
   <div class="tape"></div>
   <main class="read"><div class="ab">
     <div>
-      <p>I'm Ploypairaoh Pat, studying for a <strong>B.S. in Computational and Data Science at George Mason University</strong>, with expected graduation in <strong>2027</strong>.</p>
-      <p>My work focuses on <strong>data analysis that informs decisions</strong>: measuring portfolio risk, comparing fraud-review costs, and building tested SQL metrics. These projects combine Python, SQL, and machine learning with clear explanations of findings, assumptions, and limitations.</p>
-      <p>Each case study connects a question to the data, method, and recommendation, so readers can assess what the evidence supports and what needs further evaluation.</p>
+      <p>I’m Pat Ploypairaoh, a Computational and Data Science student at George Mason University. I’m interested in using data to understand practical problems and communicate findings that people can act on.</p>
+      <p>My projects include analyzing two years of audiovisual inventory records to identify tracking gaps and recommend improvements, and testing how well offline, text-based models assess misinformation risk. Alongside technical work, my experience with George Mason University Student Centers and student leadership has strengthened how I organize projects, work with others, and explain results.</p>
+      <p>Outside my technical work, I served as president of a nearly 40-member Beta Theta Pi chapter. I introduced a budget to address a $5,000 inherited debt and earned unanimous chapter approval. As vice president of recruitment for George Mason’s Interfraternity Council, I helped introduce a shared recruiting system across 15 fraternities; more than 100 new members joined during its first semester.</p>
     </div>
     <aside class="side">
       <div class="ccard"><div class="ct">Explore my work</div>
         <a href={`mailto:${email}`}>Email<span class="ar">↗</span></a>
         <a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn<span class="ar">↗</span></a>
         <a href="https://github.com/PloypairaohPat" target="_blank" rel="noopener">GitHub<span class="ar">↗</span></a>
-        {hasResume && <a href="/resume.pdf">Résumé (PDF)<span class="ar">↓</span></a>}
+        {hasResume && <a href={resumePath}>Resume</a>}
       </div>
     </aside>
   </div></main>
