@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { projects } from '../../data/projects';
+import { email, linkedin } from '../../data/site';
 export function getStaticPaths() {
   return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
 }
@@ -63,6 +64,8 @@ const secList = [['01', 'Problem', p.sections.problem], ['02', 'Data', p.section
     <div class="links">
       {p.liveUrl && <a href={p.liveUrl} target="_blank" rel="noopener">{p.live} ↗</a>}
       <a href={p.code} target="_blank" rel="noopener">Code on GitHub ↗</a>
+      <a href={`mailto:${email}`}>Email ↗</a>
+      <a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
     </div>
   </div></footer>
 </Base>
