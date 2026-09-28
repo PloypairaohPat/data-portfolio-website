@@ -14,9 +14,8 @@ npm run build    # static output to dist/
 - **Theme / colours / fonts**: `src/styles/global.css` (CSS variables at the top).
 - **Layout, nav, footer, GA4, meta tags**: `src/layouts/Base.astro` and `src/components/`.
 
-## Personal details still needed
-- Email address and LinkedIn profile URL: add the real links to `src/components/Footer.astro` and `src/pages/about.astro` when available. They are currently omitted.
-- Résumé PDF: place it at `public/resume.pdf` and rebuild. `src/data/site.ts` checks for the file at build time; navigation, About, and footer links appear only when it exists.
+## Contact and résumé
+The public email and LinkedIn URL live in `src/data/site.ts` and appear in the About page and footer. The supplied résumé lives at `public/resume.pdf`; `src/data/site.ts` checks for that file at build time to show résumé links in the navigation, About page, and footer. Replace the PDF and rebuild whenever the résumé changes.
 
 ## Analytics and site metadata
 The site URL is `https://www.pat-ploypairaoh.com`. `astro.config.mjs` drives canonical URLs, Open Graph URLs, and the sitemap. Keep `public/robots.txt` in sync if the domain changes. The existing `public/favicon.svg` and `public/og.png` are included in the build.

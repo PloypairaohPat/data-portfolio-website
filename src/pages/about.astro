@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { hasResume } from '../data/site';
+import { email, hasResume, linkedin } from '../data/site';
 ---
 <Base title="About · Ploypairaoh Pat" description="Computational and Data Science student at George Mason University, focused on data analysis and business decisions. Expected graduation: 2027." active="about">
   <header class="ph"><div class="read"><span class="eyebrow">About</span><h1>Analysis is the last mile before a decision.</h1></div></header>
@@ -13,6 +13,8 @@ import { hasResume } from '../data/site';
     </div>
     <aside class="side">
       <div class="ccard"><div class="ct">Explore my work</div>
+        <a href={`mailto:${email}`}>Email<span class="ar">↗</span></a>
+        <a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn<span class="ar">↗</span></a>
         <a href="https://github.com/PloypairaohPat" target="_blank" rel="noopener">GitHub<span class="ar">↗</span></a>
         {hasResume && <a href="/resume.pdf">Résumé (PDF)<span class="ar">↓</span></a>}
       </div>
