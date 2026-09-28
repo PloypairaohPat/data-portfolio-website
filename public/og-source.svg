@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Ploypairaoh Pat — Data Analyst</title>
+  <desc id="desc">Python, SQL and machine learning. Turning data into clearer business decisions. Seven projects, one URL.</desc>
+  <!-- Editable vector companion to the imagegen-refreshed og.png. Font rendering may vary. -->
+  <defs>
+    <linearGradient id="accent"><stop stop-color="#7C5CFF"/><stop offset="1" stop-color="#FF7AC2"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#F6F4FB"/>
+  <rect width="1200" height="7" fill="url(#accent)"/>
+  <circle cx="98" cy="98" r="8" fill="#7C5CFF"/>
+  <circle cx="105" cy="98" r="8" fill="#FF7AC2"/>
+  <g font-family="'JetBrains Mono', Consolas, monospace">
+    <text x="124" y="111" font-size="27" font-weight="600" fill="#1C1A2E">PLOYPAIRAOH PAT</text>
+    <text x="90" y="582" font-size="27" fill="#9D99B5">Seven projects · one URL</text>
+  </g>
+  <text x="84" y="326" font-family="'Space Grotesk', Arial, sans-serif" font-size="112" font-weight="600" letter-spacing="-3" fill="#1C1A2E">Ploypairaoh Pat</text>
+  <g font-family="'DM Sans', Arial, sans-serif" font-size="36" fill="#6A6685">
+    <text x="90" y="388">Data Analyst · Python, SQL &amp; machine learning</text>
+    <text x="90" y="436">Turning data into clearer business decisions.</text>
+  </g>
+  <rect x="90" y="534" width="220" height="8" fill="url(#accent)"/>
+</svg>
