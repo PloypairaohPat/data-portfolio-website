@@ -1,12 +1,12 @@
 ---
-import { email, hasResume, linkedin } from '../data/site';
+import { email, hasResume, linkedin, resumePath } from '../data/site';
 ---
 <footer class="foot" id="contact"><div class="wrap foot-inner">
-  <h3>Let's talk about turning data into decisions.</h3>
+  <div class="foot-copy"><h3>Contact</h3><p>For job opportunities or project inquiries, email me or connect on LinkedIn.</p></div>
   <div class="foot-links">
     <a href={`mailto:${email}`}>→ Email</a>
     <a href={linkedin} target="_blank" rel="noopener noreferrer">→ LinkedIn</a>
     <a href="https://github.com/PloypairaohPat" target="_blank" rel="noopener">→ GitHub</a>
-    {hasResume && <a href="/resume.pdf">→ Résumé (PDF)</a>}
+    {hasResume && <a href={resumePath}>Resume</a>}
   </div>
 </div><div class="wrap foot-meta">© 2026 Ploypairaoh Pat · Seven projects, one URL.</div></footer>
