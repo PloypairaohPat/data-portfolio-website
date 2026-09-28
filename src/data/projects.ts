@@ -439,10 +439,10 @@ export const projects = [
       "phTitle": "A private financial workspace",
       "note": "The bank-connected workspace requires sign-in because it handles personal financial data. This case study describes the pipeline, alerts, and score without displaying banking records. Explore the app's sign-in page or review the code linked below.",
       "btnLabel": "Open the app (sign-in)",
-      "btnUrl": "https://finance-dashboard-tau-two.vercel.app"
+      "btnUrl": "https://www.pployledger.com/"
     },
     "code": "https://github.com/PloypairaohPat/finance-dashboard",
-    "liveUrl": "https://finance-dashboard-tau-two.vercel.app",
+    "liveUrl": "https://www.pployledger.com/",
     "card": {
       "title": "Ledger — Personal Finance Platform",
       "summary": "A full-stack finance app on Plaid Production: a TypeScript cleaning pipeline, a 7-detector alerts engine, and an explainable 0–100 financial health score, synced daily.",
